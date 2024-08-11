@@ -10,9 +10,7 @@ function App() {
   return (
     <div className="App overflow-hidden">
       <Router>
-        
-          <AnimatedRoutes />
-        
+          <AnimatedRoutes /> 
       </Router>
     </div> 
   );

@@ -1,0 +1,14 @@
+.add-btn {
+    position: absolute;
+    top: 12%;
+    right: 5%;
+    font-size: 30px !important;
+    padding: 0 0.75rem !important;
+    background-color: transparent !important;
+    box-shadow: inset 0px 5px #dc3545;
+    transition: all 0.3s ease-in-out !important;
+}
+
+.add-btn:hover {
+    box-shadow: inset 0px 50px #dc3545 !important;
+}
