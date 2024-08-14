@@ -10,7 +10,7 @@ export const HabitForm = ({show, setShow}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(habit);
+        
         dispatch(addHabit(habit));
         setShow(false);
 

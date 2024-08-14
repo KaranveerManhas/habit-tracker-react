@@ -4,6 +4,7 @@ import { Home } from "../../pages/home/Home";
 
 import { Route, Routes } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
+import { WeekView } from "../../pages/week_view/WeekView";
 
 
 export const AnimatedRoutes = () => {
@@ -15,6 +16,7 @@ export const AnimatedRoutes = () => {
             <Routes location={location} key={location.pathname}>
                 <Route path="/" element={<GetStarted />} />
                 <Route path='/home' element={<Home />} />
+                <Route path="/week-view" element={<WeekView />} />
             </Routes>
         </AnimatePresence>
         

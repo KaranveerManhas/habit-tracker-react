@@ -15,7 +15,7 @@ export const Home = () => {
     const [show, setShow] = useState(false);
 
     const {habits} = useSelector(habitSelector);
-    console.log(habits);
+    
 
     return (
         <motion.div className="h-100 d-flex justify-content-center align-items-center bg-black text-white"
