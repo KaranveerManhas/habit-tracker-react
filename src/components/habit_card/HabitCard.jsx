@@ -1,28 +1,29 @@
 import { useDispatch } from 'react-redux';
 import styles from './habitCard.module.css';
 import { Button } from 'react-bootstrap';
-import { removeHabit } from '../../redux/reducers/habitReducers';
+import { removeHabit, setCurrentHabit } from '../../redux/reducers/habitReducers';
 import { useNavigate } from 'react-router-dom';
 
 export const HabitCard = ({habit}) => {
-    
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const handleDelete = (e) =>{
         e.preventDefault();
-
         dispatch(removeHabit(habit));      
-
     }
 
-    const handleNavigate = () => {
+    const handleNavigate = (e) => {
+        e.preventDefault();
+        dispatch(setCurrentHabit(habit));
         navigate('/week-view');
     }
 
     return (
-        <div className={styles.habit_card}>
-            <div className={styles.body_fill}></div>
+        <div className={styles.habit_card} style={{borderColor: habit.color}}>
+            <div className={styles.body_fill} 
+                style={{backgroundColor: habit.color }}>
+            </div>
             <div className={styles.habit_content}>
                 <div className={styles.habit_title}>{habit.title}</div>
                 <div className="buttons">

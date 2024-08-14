@@ -10,12 +10,11 @@ import { easeInOut, motion } from 'framer-motion';
 
     return (
       <motion.div 
-      initial={{x:3000}} 
+      initial={{x:window.innerWidth}} 
       animate={{x: 0}}
-      exit={{x:-3000, 
-        position:'absolute'
+      exit={{x:-window.innerWidth, 
+        transition:{ease: easeInOut, duration: 0.5}
       }}
-      transition={{ease: easeInOut, duration: 0.8}}
       >
         <Container className='h-100'>
           <div className="wrapper d-flex h-100 justify-content-center gap-2 align-items-center">

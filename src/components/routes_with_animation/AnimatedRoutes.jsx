@@ -12,7 +12,7 @@ export const AnimatedRoutes = () => {
     
 
     return (
-        <AnimatePresence>
+        <AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>
                 <Route path="/" element={<GetStarted />} />
                 <Route path='/home' element={<Home />} />
