@@ -7,6 +7,17 @@ import { useNavigate } from 'react-router-dom';
 export const HabitCard = ({habit}) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    
+    const setBgWidth = () => {
+        let count = 0;
+
+        habit.weekData.map(day => {
+            if(day.completed === true) count++;
+            return null;
+        });
+        
+        return `${(count / 7) * 100}%`;
+    }
 
     const handleDelete = (e) =>{
         e.preventDefault();
@@ -22,7 +33,7 @@ export const HabitCard = ({habit}) => {
     return (
         <div className={styles.habit_card} style={{borderColor: habit.color}}>
             <div className={styles.body_fill} 
-                style={{backgroundColor: habit.color }}>
+                style={{backgroundColor: habit.color, width:setBgWidth() }}>
             </div>
             <div className={styles.habit_content}>
                 <div className={styles.habit_title}>{habit.title}</div>

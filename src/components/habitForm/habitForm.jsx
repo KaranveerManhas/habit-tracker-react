@@ -19,6 +19,22 @@ export const HabitForm = ({show, setShow}) => {
 
     const { currentHabitIndex } = useSelector(habitSelector);
 
+    const getPastWeekDates = () => {
+        const dates = [];
+
+        for (let i = 6; i >=0; i--){
+            const date = new Date();
+            date.setDate(date.getDate() - i);
+            dates.push({
+                date: date.toISOString().split('T')[0],
+                completed: null
+            });
+        }
+
+        return dates;
+
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -27,12 +43,15 @@ export const HabitForm = ({show, setShow}) => {
             return;
         }
 
+
+
         const newHabit = {
             ...habit,
             index: currentHabitIndex,
-            color: colors[Math.floor(Math.random() * colors.length)]
+            color: colors[Math.floor(Math.random() * colors.length)],
+            weekData: getPastWeekDates()
         }
-
+        
         dispatch(addHabit(newHabit));
         setShow(false);
 

@@ -22,12 +22,16 @@ const habitSlice = createSlice({
         setCurrentHabit: (state, action) => {
             state.currentHabit = action.payload;
         },
-
+        updateHabitWeekData: (state, action) => {
+            const habitIndex = state.habits.findIndex(habit => habit.index === state.currentHabit.index);
+            state.habits[habitIndex].weekData = action.payload;
+            state.currentHabit = state.habits[habitIndex];
+        }
     }
 });
 
 export const habitReducer = habitSlice.reducer;
 
-export const { addHabit, removeHabit, setCurrentHabit } = habitSlice.actions;
+export const { addHabit, removeHabit, setCurrentHabit, updateHabitWeekData } = habitSlice.actions;
 
 export const habitSelector = (state) => state.habitReducer;
